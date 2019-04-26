@@ -1,1 +1,0 @@
-# keyninja-test
