@@ -2,17 +2,28 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { Button } from 'react-bootstrap';
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css'
 
+// Create a Customer object for rendering
 const Customer = props => (
     <tr>
         <td>{props.customerlist.customer_firstName}</td>
         <td>{props.customerlist.customer_lastName}</td>
         <td>{props.customerlist.customer_email}</td>
         <td>
-            <Link to={"/edit/"+props.customerlist._id}>Edit</Link>
+            <Link to={"/edit/"+props.customerlist._id}>
+                <Button variant="primary" block>
+                    Edit
+                </Button>
+            </Link>
             <br></br>
-            <Link to={"/delete/"+props.customerlist._id}>Delete</Link>
+            <Link to={"/delete/"+props.customerlist._id}>
+                <Button variant="danger" block>
+                    Delete
+                </Button>
+            </Link>
+            
         </td>
     </tr>
 )

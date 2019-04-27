@@ -16,7 +16,6 @@ export default class AddCustomer extends Component {
             customer_lastName: '',
             customer_email: '',
         }
-
     }
 
     onChangeCustomerFirstName(e) {
@@ -40,17 +39,13 @@ export default class AddCustomer extends Component {
     onSubmit(e) {
         e.preventDefault();
         
-        console.log(`Form submitted:`);
-        console.log(`Customer First Name: ${this.state.customer_firstName}`);
-        console.log(`Customer Last Name: ${this.state.customer_lastName}`);
-        console.log(`Customer Email: ${this.state.customer_email}`);
-
         const newCustomer = {
             customer_firstName: this.state.customer_firstName,
             customer_lastName: this.state.customer_lastName,
             customer_email: this.state.customer_email
         };
 
+        // POST request to add new customer 
         axios.post('http://localhost:4000/customer_records/add', newCustomer)
             .then(res => console.log(res.data));
         
@@ -95,8 +90,6 @@ export default class AddCustomer extends Component {
                                 onChange={this.onChangeCustomerEmail}
                                 />
                     </div>
-
-
                     <div className="form-group">
                         <input type="submit" value="Submit" className="btn btn-primary" />
                     </div>

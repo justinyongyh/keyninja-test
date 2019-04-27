@@ -61,6 +61,7 @@ export default class EditCustomer extends Component {
         };
         console.log(obj);
         
+        // POST request to update customer details
         axios.post('http://localhost:4000/customer_records/update/' + this.props.match.params.id, obj)
             .then(res => console.log(res.data));
         
@@ -70,7 +71,6 @@ export default class EditCustomer extends Component {
 
     render() {
         return (
-
             <div style={{marginTop: 10}}>
                 <h3>Edit Customer</h3>
                 <form onSubmit={this.onSubmit}>
@@ -100,8 +100,6 @@ export default class EditCustomer extends Component {
                                 onChange={this.onChangeCustomerEmail}
                                 />
                     </div>
-
-
                     <div className="form-group">
                         <input type="submit" value="Update" className="btn btn-primary" />
                     </div>
